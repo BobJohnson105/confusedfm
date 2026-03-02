@@ -70,6 +70,24 @@ Your browser does not support the audio element.
 </body>
 </html>
 <p style="color:#EBBA34;">"they say it came from the sky".</p>
+<p align="center ">
+  ?: <input type="password" id="myPsw" value="">
+  <button onclick="myFunction()">Enter?</button>
+</p>
+<div id="errortext">
+This is my DIV element.
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("myPsw").value;
+  var y = document.getElementById("errortext");
+  if (x == "EBBA34") {
+    y.style.display = "none";
+  } else {
+    y.style.display = "block";
+  }
+}
+</script>
 
 
 

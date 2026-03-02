@@ -74,13 +74,13 @@ Your browser does not support the audio element.
   ?: <input type="password" id="myPsw" value="">
   <button onclick="myFunction()">Enter?</button>
 </p>
-<div id="errortext" style="display: "none">
+<div id="hidden" style="display: "none">
   <img src="Gun.png" alt="Gun" class="center">
 </div>
 <script>
 function myFunction() {
   var x = document.getElementById("myPsw").value;
-  var y = document.getElementById("errortext");
+  var y = document.getElementById("hidden");
   if (x == "EBBA34") {
     y.style.display = "none";
   } else {
@@ -88,6 +88,7 @@ function myFunction() {
   }
 }
 </script>
+
 
 
 

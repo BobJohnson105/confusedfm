@@ -54,7 +54,7 @@ img {
             case 2038394109:
                 console.info( 'triggered' )
                 const fileInput = file_image
-                const file = fileInput.files[0];
+                const file = fileInput;
                 document.getElementById( 'dynamicimg' ).src = "data:image/png;base8," + decryptFile( file, code );
         }
 

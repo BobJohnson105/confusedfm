@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Encryption Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script>
+    function encryptFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const fileContentRaw = event.target.result;
+        const fileContent = CryptoJS.lib.WordArray.create(fileContentRaw);
+
+        const secretKey = document.getElementById( 'secretkey' ).value;
+        console.info( 'secret key: \'' + secretKey + '\'' )
+        const encryptedData = CryptoJS.AES.encrypt(fileContent, secretKey).toString();
+
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(encryptedData);
+        downloadLink.download = file.name + '.enc';
+        downloadLink.style.display = 'block';
+      };
+      reader.readAsArrayBuffer(file, 'utf-8');
+    }
+  </script>
+</head>
+<body>
+  <h2>File Encryption Example</h2>
+  <input type="file" id="fileInput">
+  <button onclick="encryptFile()">Encrypt File</button>
+  <div>
+    Enter secret key here:
+    <textarea id="secretkey"></textarea>
+  </div>
+  <a id="downloadLink" style="display: none;">Download Encrypted File</a>
+</body>
+</html>

@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-h1 {font-family: Arial; text-align: center;}
-p {font-family: Arial; text-align: center;}
-div {font-family: Arial; text-align: center;}
-img {
-  display: block;
-  margin: auto;
-  width: 50%;
-}
-</style>
+This image will only load when the word 'passkey' is entered into the field and submitted, and the encrypted file is uploaded
 
-<body onload="load_resources()">
-<body style="background-color:#ebba34;">
-<h1>Extras</h1>
-<p>SPECIAL EXTRAS COMING SOON</p>
-<p><a href="index.html">Home</a></p>
-<p>Colour me confused? Input below for some special digital merch!</p>
 <div>
     <textarea id="passkey"></textarea>
     <button id="submit" onclick="fjor()">submit</button>
 </div>
+<div>
+  <input type="file" id="fileInput">
+</div>
+
 <div>
     <img id="dynamicimg" src="">
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 <script>
-	var file_image;
-	async function load_resources() {
-		file_image = await ( await fetch("ConfusedfmFlyer.png.enc") ).blob()
-	}
-	
     function fjor() {
         String.prototype.hashCode = function() {
             var hash = 0, i, chr;
@@ -53,7 +33,7 @@ img {
         switch ( code.hashCode() ) {
             case 2038394109:
                 console.info( 'triggered' )
-                const fileInput = file_image
+                const fileInput = document.getElementById('fileInput');
                 const file = fileInput.files[0];
                 document.getElementById( 'dynamicimg' ).src = "data:image/png;base8," + decryptFile( file, code );
         }
@@ -74,5 +54,3 @@ img {
         reader.readAsText(file, 'utf-8');
     }
 </script>
-</body>
-</html>

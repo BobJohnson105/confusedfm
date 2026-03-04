@@ -27,7 +27,39 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  
+  }
+.container {
+	background-color: rgb(0, 0, 0);
+	width: 50%;
+	color: white;
+	text-align: right;
+	font-size: 20px;
+}
+
+.skill {
+    background-color: yellow;
+	animation: color-change 1s infinite;
+    color: black;
+    padding: 1%;
+    text-align: right;
+    font-size: 20px;
+}
+
+.progressbar{
+	width: 10%;
+}
+animatedp {
+  font-family: monospace;
+  font-size: 80px;
+  animation: color-change 1s infinite;
+  text-align: middle;
+}
+
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
 </style>
 
 </head>
@@ -37,16 +69,35 @@ ul {
 </marquee>
 <h1>We're confused.</h1>
 <p>Are you?</p>
+<animatedp class="centor">
+	
+	EARNINGS TRACKER!
+	
+</animatedp>
+<p style="font-style: italic;">We need to make £1.3 Billion before the end of series 2!!! HELP US OUT BY BUYING OUR MERCH <br> 
+(the store isn't open yet actually sorry just fling us a fiver or something if you see us)</p>
+<div class="center">
+<p>We've made this much progress so far!------></p>
+	<div class="container">
+		<div class="skill progressbar">10%</div> 
+	</div>
+	<p style="color: white; background-color:tomato; padding: 0.5%;">&nbsp&nbsp&nbsp&nbsp GOAL £1.3B</p>
+</div>
 <div class="center">
 	<ul>
 		  <li><a href="About.html">About</a></li>
 		  <li><a href="Episodes.html">Episodes</a></li>
 		  <li><a href="Polls.html">Polls</a></li>
 		  <li><a href="Extras.html">Extras</a></li>
+		  <li><button onclick="playDitty()">Play Ditty</button>
 	</ul>
 </div>
 <p align="center ">
-  <h1>Season 2 episode 4 now STREAMING here! LISTEN NOW!</h1>
+	<div class="center">
+		<img src="Exploding.gif" alt="Guy explodes because awesomeness too much" style="width:96px;height:96px; display:block;">
+		<h1 style="display: block">Season 2 episode 4 now STREAMING here! LISTEN NOW!</h1>
+		<img src="Exploding.gif" alt="Guy explodes because awesomeness too much" style="width:96px;height:96px display:block;">
+	</div>
 </p>
 <p align="center ">
   <audio controls style="width: 750px; height: 50px">
@@ -74,6 +125,7 @@ Your browser does not support the audio element. They aren't gone.
   <button onclick="myFunction()">Enter?</button>
 </p>
 <img id="hidden" src="Gun.png" alt="Gun" style="display: none;">
+<audio id="ditty" src="Confusion.mp3" type="audio/mpeg">
 <script>
 function myFunction() {
   var x = document.getElementById("myPsw").value;
@@ -83,6 +135,19 @@ function myFunction() {
   } else {
     y.style = "display: none;";
   }
+}
+function playDitty() {
+	var audio = document.getElementById("ditty")
+	console.log(audio.currentTime);
+	if (audio.duration > 0 && !audio.paused) {
+		console.log("STOPPING")
+		audio.pause();
+		audio.currentTime = 0;
+	} else {
+		console.log("PLAYING")
+		audio.play();
+	}
+
 }
 </script>
 

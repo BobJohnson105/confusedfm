@@ -60,12 +60,17 @@ animatedp {
   50% { color: blue; }
   100% { color: red; }
 }
+invbutton{
+    background: transparent;
+    border: none;
+    font-size:0;
+}
 </style>
 
 </head>
 <body style="background-color:#ebba34;">
 <marquee>
-	<img src="banner.png" alt="confusedfmlogo" style="width:1080px;height:100px;">
+	<img src="Bannerlong.png" alt="confusedfmlogo" style="width:2190px;height:100px;">
 </marquee>
 <h1>We're confused.</h1>
 <p>Are you?</p>
@@ -89,9 +94,15 @@ animatedp {
 		  <li><a href="Episodes.html">Episodes</a></li>
 		  <li><a href="Polls.html">Polls</a></li>
 		  <li><a href="Extras.html">Extras</a></li>
+		  <li><a href="Merch.html">Merch</a></li>
+		  <li><a href="MoreStuff.html">More Stuff!</a></li>
 		  <li><button onclick="playDitty()">Play Ditty</button>
 	</ul>
 </div>
+<br>
+<invbutton onclick="faxyGo()">
+        <img src="Faxybutton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+      </invbutton>
 <p align="center ">
 	<div class="center">
 		<img src="Exploding.gif" alt="Guy explodes because awesomeness too much" style="width:96px;height:96px; display:block;">
@@ -126,6 +137,7 @@ Your browser does not support the audio element. They aren't gone.
 </p>
 <img id="hidden" src="Gun.png" alt="Gun" style="display: none;">
 <audio id="ditty" src="Confusion.mp3" type="audio/mpeg">
+<audio id="faxy" src="FaxyIntro.mp3" type="audio/mpeg">
 <script>
 function myFunction() {
   var x = document.getElementById("myPsw").value;
@@ -138,6 +150,19 @@ function myFunction() {
 }
 function playDitty() {
 	var audio = document.getElementById("ditty")
+	console.log(audio.currentTime);
+	if (audio.duration > 0 && !audio.paused) {
+		console.log("STOPPING")
+		audio.pause();
+		audio.currentTime = 0;
+	} else {
+		console.log("PLAYING")
+		audio.play();
+	}
+
+}
+function faxyGo() {
+	var audio = document.getElementById("faxy")
 	console.log(audio.currentTime);
 	if (audio.duration > 0 && !audio.paused) {
 		console.log("STOPPING")

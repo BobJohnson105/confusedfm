@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+h1 {font-family: Arial; text-align: center;}
+p {font-family: Arial; text-align: center;}
+div {font-family: Arial; text-align: center;}
+img {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.centor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  }
+animatedp {
+  font-family: monospace;
+  font-style: italic;
+  font-size: 80px;
+  animation: color-change 1s infinite;
+  text-align: middle;
+}
+
+@keyframes color-change {
+  0% { color: green; }
+  50% { color: orange; }
+  100% { color: green; }
+
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #EBBA34;
+  padding: 25px;
+  gap: 5px;
+}
+
+.container div {
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 25px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  }
+</style>
+
+<body>
+<body style="background-color:#ebba34;">
+<animatedp class="centor">
+	
+	MERCH
+	
+</animatedp>
+<p>MERCH STORE NOW OPEN!</p>
+<p><a href="index.html">Home</a></p>
+<p align="center">
+	<div class="center">
+		<img src="Exploding.gif" alt="Guy explodes because awesomeness too much" style="width:150px;height:150px ">
+		<p style="font-size: 30px; display:block;">IT'S FINALLY HERE! WOOOOO!</p>
+		<img src="Exploding.gif" alt="Guy explodes because awesomeness too much" style="width:150px;height:150px ">
+	</div>
+</p>
+<p style="font-size: 15px">Check out our selection of merch! The best merch around!</p>
+<p align="center"><button onclick="playDitty()">Shopping Music?</button></p>
+<div class="container">
+	<div style="background-color: gray;">
+	  <h2>MERCH ITEM #1</h2>
+	  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <p>Lovely merch item</p>
+	  <p>£1 Million.</p>
+	</div>
+	<div style="background-color: gray;">
+	  <h2>MERCH ITEM #2</h2>
+	  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <p>Lovely merch item</p>
+	  <p>£2 Million.</p>
+	</div>
+	<div style="background-color: gray;">
+	  <h2>MERCH ITEM #3</h2>
+	   <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <p>Lovely merch item</p>
+	  <p>£3 Million.</p>
+	</div>
+		<div style="background-color: gray;">
+	  <h2>MERCH ITEM #4</h2>
+	  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <p>Lovely merch item</p>
+	  <p>£1 Million.</p>
+	</div>
+	<div style="background-color: gray;">
+	  <h2>MERCH ITEM #5</h2>
+	  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <p>Lovely merch item</p>
+	  <p>£2 Million.</p>
+	</div>
+	<div style="background-color: gray;">
+	  <h2>MERCH ITEM #6</h2>
+	  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <p>Lovely merch item</p>
+	  <p>£3 Million.</p>
+	</div>
+</div>
+<audio loop id="ditty" src="Shopping.mp3" type="audio/mpeg">
+</body>
+</html>
+<script>
+function playDitty() {
+	var audio = document.getElementById("ditty")
+	console.log(audio.currentTime);
+	if (audio.duration > 0 && !audio.paused) {
+		console.log("STOPPING")
+		audio.pause();
+		audio.currentTime = 0;
+	} else {
+		console.log("PLAYING")
+		audio.play();
+	}
+}
+</script>

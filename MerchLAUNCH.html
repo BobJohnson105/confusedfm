@@ -59,6 +59,12 @@ animatedp {
   align-items: center;
   height: 100px;
   }
+  .merch {
+  text-align:center;
+  padding:40px;
+  background-color:lightblue;
+  font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 </style>
 
 <body>
@@ -77,12 +83,22 @@ animatedp {
 		<img src="Exploding.gif" alt="Guy explodes because awesomeness too much" style="width:150px;height:150px ">
 	</div>
 </p>
+<div popover class="merch" id="merch1">
+  <h2>Merch Item #1</h2>
+  <hr>
+  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+  <p>This is the best merch ever!</p>
+  <p>Buying this will solve most* of your problems!</p>
+  <button popovertarget="merch1" popovertargetaction="hide">Close</button>
+</div>
+
 <p style="font-size: 15px">Check out our selection of merch! The best merch around!</p>
 <p align="center"><button onclick="playDitty()">Shopping Music?</button></p>
 <div class="container">
 	<div style="background-color: gray;">
 	  <h2>MERCH ITEM #1</h2>
 	  <img src="FaxyButton.png" alt="FaxyIntro" style="width:270px;height:270px;"/>
+	  <button popovertarget="merch1">More info!</button>
 	  <p>Lovely merch item</p>
 	  <p>£1 Million.</p>
 	</div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+h1 {font-family: Arial; text-align: center;}
+p {font-family: Arial; text-align: center;}
+div {font-family: Arial; text-align: center;}
+img {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+</style>
+
+<body onload="load_resources()">
+<body style="background-color:#ebba34;">
+<h1>WOAH!</h1>
+<p>HOW'D YOU FIND THIS????</p>
+<p><a href="index.html">Home</a></p>
+<p>If you're here then I suppose you know what to enter?</p>
+<div>
+    <textarea id="passkey"></textarea>
+    <button id="submit" onclick="fjor()">submit</button>
+</div>
+<div>
+    <img id="dynamicimg" src="">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script>
+	var file_image;
+	async function load_resources() {
+		file_image = await ( await fetch("Faxy.png.enc") ).blob()
+	}
+	
+    function fjor() {
+        String.prototype.hashCode = function() {
+            var hash = 0, i, chr;
+            if (this.length === 0) return hash;
+            for (i = 0; i < this.length; i++) {
+                chr = this.charCodeAt(i);
+                hash = ((hash << 5) - hash) + chr;
+                hash |= 0;
+            }
+            return hash;
+        }
+
+        var code = document.getElementById( 'passkey' ).value;
+        console.info( 'hash ' + code.hashCode() )
+
+        switch ( code.hashCode() ) {
+            case -50909125:
+                console.info( 'triggered' )
+                const fileInput = file_image
+                const file = fileInput;
+                document.getElementById( 'dynamicimg' ).src = "data:image/png;base8," + decryptFile( file, code );
+        }
+
+    }
+
+    function decryptFile( file, key ) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const fileContent = event.target.result;
+
+            console.info( 'filecontent ' + fileContent )
+
+            const decryptedData = CryptoJS.AES.decrypt(fileContent, key)
+            console.info( 'decrypteddata ' + decryptedData )
+            document.getElementById( 'dynamicimg' ).src = "data:image/png;base64," + decryptedData.toString(CryptoJS.enc.Base64);
+        };
+        reader.readAsText(file, 'utf-8');
+    }
+</script>
+</body>
+</html>
